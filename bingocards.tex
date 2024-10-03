@@ -1,6 +1,6 @@
-\documentclass[14pt]{article}
+\documentclass[a4paper,14pt]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[left=0.5in,right=0.5in,top=0.7in,bottom=0.5in]{geometry}
+\usepackage[left=0.5in,right=0.5in,top=1in,bottom=0.5in]{geometry}
 \renewcommand{\familydefault}{\sfdefault}
 \setlength{\parindent}{0pt}
 
@@ -31,7 +31,7 @@
 \seq_new:N \l_my_tmp_items_seq
 \seq_new:N \g_my_randomized_seq
 \int_new:N \l_tmp_int
-\msg_new:nnnn {bingo} {Too~few~items!} {Provide~at~least~24~items!}{}
+\msg_new:nnnn {bingo} {Too~few~items!} {Provide~at~least~25~items!}{}
 
 \cs_generate_variant:Nn \seq_item:Nn {Nx}
 \cs_generate_variant:Nn \seq_remove_all:Nn {Nx}
@@ -49,7 +49,7 @@
 \NewDocumentCommand{\setItems}{}
 {
 	\seq_set_eq:NN \l_my_tmp_items_seq \g_my_items_seq % put in temp seq so that multiple cards can be produced
-	\prg_replicate:nn {25} % generate random list of 24 items
+	\prg_replicate:nn {25} % generate random list of 25 items
     {
         \int_set:Nn \l_tmp_int {\seq_count:N \l_my_tmp_items_seq} 	% set current length of list
         \setrannum{\randomnum}{1}{ % choose random num up to length of seq
@@ -140,8 +140,8 @@
 \end{tikzpicture}
 }
 
-\newcommand{\Size}{3.8cm}
-\newcommand{\Sizeinner}{3.7cm}
+\newcommand{\Size}{3.7cm}
+\newcommand{\Sizeinner}{3.6cm}
 
 \tikzset{Square/.style={
 	inner sep=0pt,
