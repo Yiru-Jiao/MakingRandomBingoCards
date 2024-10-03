@@ -1,4 +1,4 @@
-\myItems{Travelled more than 5 countries;
+Travelled more than 5 countries;
 Speaks at least 3 languages;
 Has gone on a long-distance trip alone;
 Lived in at least 3 countries;
@@ -89,6 +89,4 @@ Birthday in the same month as you;
 Has letter 't' in their name;
 Rarely gets angry;
 Likes talking with strangers;
-Thinks about the future all the time
-}
-
+Thinks about the future all the time;
