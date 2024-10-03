@@ -134,7 +134,7 @@
         	% { % if it is not the center square:
            	% 	\node [Square] at ($(\col,-\row)-(0.5,0.5)$) {\large \NodeText};
         	% }
-			\node [Square] at ($(\col,-\row)-(0.5,0.5)$) {\large \NodeText};
+			\node [Square, text centered, text depth = 2.8 cm, anchor=north] at ($(\col,-\row)-(0.5,0.5)$) {\NodeText};
     	}
 	}
 \end{tikzpicture}
