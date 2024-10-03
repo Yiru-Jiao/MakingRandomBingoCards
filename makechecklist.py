@@ -78,13 +78,13 @@ def slurp_in_file(fn, theList):
 
 # Main loop:
 
-filename="superbowlbingolist.tex"
+filename="bingoquestions.tex"
 nicetable="% Hopefully a nice table\n\n"
 nicetable = slurp_in_file(filename, nicetable)
 
 # write out the table to a file:
 
-ofile="checklist1.tex"
+ofile="checklist.tex"
 output=open(ofile, 'w')
 output.write(nicetable)
 output.close()
