@@ -1,4 +1,5 @@
 \documentclass[14pt]{article}
+\usepackage[utf8]{inputenc}
 \usepackage[left=0.5in,right=0.5in,top=0.5in,bottom=0.5in]{geometry}
 
 % mostly stolen from 
@@ -131,8 +132,8 @@ Prizes will be awarded to two winners:\\
 \end{tikzpicture}
 }
 
-\newcommand{\Size}{3.7cm}
-\newcommand{\Sizeinner}{3.6cm}
+\newcommand{\Size}{3.6cm}
+\newcommand{\Sizeinner}{3.55cm}
 
 \tikzset{Square/.style={
 	inner sep=0pt,
@@ -167,7 +168,10 @@ Prizes will be awarded to two winners:\\
 \biglabel
 
 % actually draw the card:
-	\drawthecard
+\drawthecard
+
+% add a page break
+\newpage
 
 } % done with the loop
 
