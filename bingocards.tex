@@ -1,6 +1,6 @@
 \documentclass[14pt]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[left=0.5in,right=0.5in,top=0.5in,bottom=0.5in]{geometry}
+\usepackage[left=0.5in,right=0.5in,top=0.7in,bottom=0.5in]{geometry}
 \renewcommand{\familydefault}{\sfdefault}
 \setlength{\parindent}{0pt}
 
@@ -81,7 +81,7 @@
 % make a nice identifier for the card (perhaps there is more than one
 % presidential debate, etc.)
 \newcommand{\biglabel}
-{\vspace{0.2in}\begin{center}
+{\vspace{0.5in}\begin{center}
 \begin{LARGE}
 \textbf{Human Bingo} \\
 \end{LARGE}
@@ -167,7 +167,7 @@
 \input{bingoquestions.tex}
 
 % start a for-loop to make each page (its own card)
-\foreach \n in {0,...,5}{
+\foreach \n in {0,...,99}{
 
 % select and randomize the entries:
 	\setItems
