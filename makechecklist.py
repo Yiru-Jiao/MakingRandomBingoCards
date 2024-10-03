@@ -20,10 +20,11 @@ def make_entry(one_pair, indexval):
     """
     one_pair[0] = re.sub('\\\\myItems{', "", one_pair[0])
     one_pair[1] = re.sub('\\\\myItems{', "", one_pair[1])
-    choice_menu = str("\\CheckBox[checkboxsymbol=\\ding{53}")
+    # choice_menu = str("\\CheckBox[checkboxsymbol=\\ding{53}, ")
+    choice_menu = str("\\CheckBox[")
     
 
-    tabline = choice_menu + str(", name=checkbox" + str(indexval) + "]{} & " + one_pair[0] + " &")
+    tabline = choice_menu + str("name=checkbox" + str(indexval) + "]{} & " + one_pair[0] + " &")
 
     if re.search('}', one_pair[1] ):
         tabline += str("\\\\[\\sep]\n")
