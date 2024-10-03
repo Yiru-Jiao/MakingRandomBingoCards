@@ -1,5 +1,5 @@
-\documentclass[10pt]{article}
-\usepackage[left=1.0in,right=1.0in,top=1.0in,bottom=1.0in]{geometry}
+\documentclass[14pt]{article}
+\usepackage[left=0.5in,right=0.5in,top=0.5in,bottom=0.5in]{geometry}
 
 % mostly stolen from 
 % http://tex.stackexchange.com/questions/63357/automatically-generated-bingo-cards
@@ -37,7 +37,7 @@
 {
 	\seq_clear:N \g_my_items_seq % clear item list 
     \seq_gset_split:Nnn \g_my_items_seq {;} {#1} % put item list into g_my_items_seq
-    \int_compare:nNnT {\seq_count:N \g_my_items_seq} < {24} % check whether there are enough items
+    \int_compare:nNnT {\seq_count:N \g_my_items_seq} < {25} % check whether there are enough items
     {
     	\msg_error:nn {bingo} {Too~few~items!}
 	} 
@@ -46,7 +46,7 @@
 \NewDocumentCommand{\setItems}{}
 {
 	\seq_set_eq:NN \l_my_tmp_items_seq \g_my_items_seq % put in temp seq so that multiple cards can be produced
-	\prg_replicate:nn {24} % generate random list of 24 items
+	\prg_replicate:nn {25} % generate random list of 24 items
     {
         \int_set:Nn \l_tmp_int {\seq_count:N \l_my_tmp_items_seq} 	% set current length of list
         \setrannum{\randomnum}{1}{ % choose random num up to length of seq
@@ -77,16 +77,21 @@
 
 % make a nice identifier for the card (perhaps there is more than one
 % presidential debate, etc.)
-\newcommand{\biglabel}{\vspace{0.2in}\begin{center}
+\newcommand{\biglabel}
+{\vspace{0.2in}\begin{center}
 \begin{LARGE}
-Bingo
-
-Super Bowl
-
-13 February 2022
-
+\textbf{Human Bingo} \\
 \end{LARGE}
 \end{center}
+
+\begin{large}
+Talk to other people and find someone who matches a description in any square.\\
+When you find someone, ask them to sign or write their names/initials in that square.\\
+**Each person can only sign one square on your card.**\\
+Prizes will be awarded to two winners:\\
+1) the first to fill five squares in a row (horizontally, vertically, or diagonally) and yell Bingo!\\
+2) the one with the most signatures by the end of the game!
+\end{large}
 }
 
 \newcommand{\freespace}{
@@ -95,13 +100,6 @@ Super Bowl
     \node [scale=1.2] at ($(\col,-\row)-(0.5,0.3)$) {Candidate};
     \node [scale=1.2] at ($(\col,-\row)-(0.5,0.5)$) {Talks Past};
     \node [scale=1.2] at ($(\col,-\row)-(0.5,0.7)$) {Allotted Time}; 
-}
-
-% use Donald_Trump_official_portrait.jpg as free space image:
-\renewcommand{\freespace}{
-	\filldraw[fill=gray!90, draw=black] ($(\col,-\row)-(1,1)$) rectangle ($(\col,-\row)$) ;
-    \node [scale=1.2] at ($(\col,-\row)-(0.5,0.5)$) {\includegraphics[scale=0.16, clip=true, trim=0 0 0 0]{nfl_logo.png}};
-	
 }
 
 % If you want a more standard free space square:
@@ -121,19 +119,20 @@ Super Bowl
     	\foreach \col in \Sequence {%
         	\pgfmathtruncatemacro{\value}{\col+\NumOfColumns*(\row-1)}
         	\pgfmathsetmacro{\ColRowProduce}{\col*\row} % 3 x 3 = 9
-        	\IfEq{\ColRowProduce}{9}{% If is center square, do the \freespace command:
-        		\freespace
-        	}
-        	{ % if it is not the center square:
-           		\node [Square] at ($(\col,-\row)-(0.5,0.5)$) {\large \NodeText};
-        	}
+        	% \IfEq{\ColRowProduce}{9}{% If is center square, do the \freespace command:
+        	% 	\freespace
+        	% }
+        	% { % if it is not the center square:
+           	% 	\node [Square] at ($(\col,-\row)-(0.5,0.5)$) {\large \NodeText};
+        	% }
+			\node [Square] at ($(\col,-\row)-(0.5,0.5)$) {\large \NodeText};
     	}
 	}
 \end{tikzpicture}
 }
 
-\newcommand{\Size}{3.1cm}
-\newcommand{\Sizeinner}{3.0cm}
+\newcommand{\Size}{3.7cm}
+\newcommand{\Sizeinner}{3.6cm}
 
 \tikzset{Square/.style={
 	inner sep=0pt,
@@ -159,16 +158,16 @@ Super Bowl
 \input{superbowlbingolist.tex}
 
 % start a for-loop to make each page (its own card)
-\foreach \n in {0,...,49}{
+\foreach \n in {0,...,85}{
 
 % select and randomize the entries:
 	\setItems
 
+% add the label text:
+\biglabel
+
 % actually draw the card:
 	\drawthecard
-
-% add the label text:
-	\biglabel
 
 } % done with the loop
 
