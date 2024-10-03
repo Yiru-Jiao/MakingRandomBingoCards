@@ -89,7 +89,7 @@ to be more centered.
 The python script parses the entire list and provides a ```longtable``` 
 checklist for the moderator to use when evaluating a given event. 
 The ```bingochecklist.tex``` file reads the output of the python script, 
-which is a file called ```checklist1.tex```.
+which is a file called ```checklist.tex```.
 
 So, from a terminal on your machine of choice, run 
 
